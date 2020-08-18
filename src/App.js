@@ -42,7 +42,11 @@ class App extends Component {
       font: 'inherit',
       border: '2px solid black',
       padding: '9px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      ':hover': {
+        backgroundColor: 'lightblue',
+        color: 'black'
+      }
     }
     return (
       <StyleRoot>
@@ -70,4 +74,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Radium(App);
