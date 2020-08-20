@@ -1,7 +1,20 @@
 import React, { Component } from 'react';
 import './App.css';
-import Radium, { StyleRoot } from 'radium';
 import Person from './Person/Person';
+import styled from 'styled-components';
+
+const StyledButton = styled.button `
+      background-color: white;
+      font: inherit;
+      border: 2px solid black;
+      padding: 9px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: lightblue;
+        color: black;
+      }
+`;
 
 
 class App extends Component {
@@ -37,25 +50,13 @@ class App extends Component {
   }
 
   render () {
-    const styleBoutton = {
-      backgroundColor: 'white',
-      font: 'inherit',
-      border: '2px solid black',
-      padding: '9px',
-      cursor: 'pointer',
-      ':hover': {
-        backgroundColor: 'lightblue',
-        color: 'black'
-      }
-    }
+    
     return (
-      <StyleRoot>
         <div className="App">
         <h1>Hi, I'm a React App</h1>
         <p>This is really working!</p>
-        <button 
-        style = {styleBoutton}
-        onClick={() => this.switchNameHandler('Maximilian!!')}>Switch Name</button>
+        <StyledButton
+        onClick={() => this.switchNameHandler('Maximilian!!')}>Switch Name</StyledButton>
         <Person 
           name={this.state.persons[0].name} 
           age={this.state.persons[0].age} />
@@ -68,10 +69,9 @@ class App extends Component {
           name={this.state.persons[2].name} 
           age={this.state.persons[2].age} />
       </div>
-      </StyleRoot>
     );
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
   }
 }
 
-export default Radium(App);
+export default App;
