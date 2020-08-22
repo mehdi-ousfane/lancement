@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+//import PropTypes from 'prop-types';
 import classes from './App.module.css';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
@@ -25,12 +25,15 @@ class App extends Component {
     return state;
   }
 
-  componentWillMount() {
-    console.log('[App.js] componentWillMount');
-  }
+  //componentWillMount() {
+  //  console.log('[App.js] componentWillMount');
+  //}
 
   componentDidMount() {
     console.log('[App.js] componentDidMount');
+  }
+  shouldComponentUpdate(nextProps,nextState) {
+    return true;
   }
 
   nameChangedHandler = (event, id) => {
@@ -92,5 +95,6 @@ class App extends Component {
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
   }
 }
+
 
 export default App;
